@@ -1,0 +1,145 @@
+.heroSection {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.heroCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroVignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, transparent 42%, var(--color-bg) 100%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  padding: 0 40px;
+}
+
+.heroLabel {
+  margin-bottom: 28px;
+}
+
+.heroHeading {
+  margin-bottom: 28px;
+}
+
+.heroLine {
+  display: block;
+}
+
+.heroWord {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.heroWordAccent {
+  display: inline-block;
+  margin-right: 0.25em;
+  color: #7c5cff;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 0.35px rgba(245, 245, 247, 0.18);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.24;
+}
+
+.heroSubtext {
+  max-width: 540px;
+  margin: 0 auto 44px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.heroCtaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background-color: var(--color-violet);
+  color: var(--color-primary);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 0 32px rgba(124, 92, 255, 0.28);
+}
+
+.heroCtaPrimary svg {
+  display: block;
+}
+
+.heroSocialProof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(38, 39, 44, 0.9);
+  color: var(--color-muted);
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.heroAvatarStack {
+  display: flex;
+}
+
+.heroAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-bg);
+  position: relative;
+  z-index: 3;
+}
+
+.heroAvatar:nth-child(1) {
+  background: linear-gradient(135deg, var(--color-violet), #5b3fcc);
+}
+
+.heroAvatar:nth-child(2) {
+  background: linear-gradient(135deg, var(--color-teal), #1ba89b);
+  margin-left: -6px;
+}
+
+.heroAvatar:nth-child(3) {
+  background: linear-gradient(135deg, #5b3fcc, var(--color-teal));
+  margin-left: -6px;
+}
