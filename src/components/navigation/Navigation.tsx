@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { navLinks } from '@/lib/mock-data';
+import styles from './Navigation.module.css';
 
 const NAV_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -15,7 +16,7 @@ const navContainer = {
 
 const navItem = {
   hidden: { opacity: 0, y: -8 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: NAV_EASE } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: NAV_EASE } },
 };
 
 export default function Navigation() {
@@ -129,15 +130,7 @@ export default function Navigation() {
         variants={navContainer}
         initial="hidden"
         animate="show"
-        style={{
-          maxWidth: '1240px',
-          margin:'0 auto',
-          padding: '0 40px',
-          height: '64px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
+        className={styles.navInner}
       >
         {/* Logo */}
         <motion.a
@@ -157,29 +150,13 @@ export default function Navigation() {
           }}
           aria-label="Xai home"
         >
-          <img
-            src="/xai-logo.png"
-            alt="Xai logo"
-            style={{
-              width: '24px',
-              height: '24px',
-              objectFit: 'contain',
-              display: 'block',
-            }}
-          />
-          <span>Xai</span>
+          <img src="/xai-logo.png" alt="Xai logo" className={styles.logoImage} />
+          <span className={styles.logoText}>Xai</span>
         </motion.a>
 
         {/* nav links */}
-        <nav aria-label="Main navigation">
-          <ul
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '32px',
-              listStyle: 'none',
-            }}
-          >
+        <nav aria-label="Main navigation" className={styles.nav}>
+          <ul className={styles.navList}>
             {navLinks.map((link) => {
               const isActive = activeLink === link.href;
               return (
