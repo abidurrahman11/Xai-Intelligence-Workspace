@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ────────────────Design Tokens───────────────── */
+@theme {
+  --color-bg:             #0A0A0B;
+  --color-surface:        #131417;
+  --color-surface-raised: #1B1C20;
+  --color-border:         #26272C;
+  --color-primary:        #F5F5F7;
+  --color-muted:          #9A9AA2;
+  --color-violet:         #7C5CFF;
+  --color-teal:           #2DD4BF;
+
+  --font-display: var(--font-jakarta);
+  --font-body:    var(--font-inter);
+  --font-mono:    var(--font-jetbrains);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────Base reset & globals───────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #0A0A0B;
+    color: #F5F5F7;
+    font-family: var(--font-inter, system-ui, sans-serif);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(124, 92, 255, 0.25);
+    color: #F5F5F7;
+  }
+
+  /* Scrollbar — subtle dark */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0A0A0B; }
+  ::-webkit-scrollbar-thumb { background: #26272C; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3A3B40; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ───────────────typography Utilities──────────────────────── */
+
+@layer utilities {
+  .font-display { font-family: var(--font-jakarta, system-ui, sans-serif); }
+  .font-body    { font-family: var(--font-inter,   system-ui, sans-serif); }
+  .font-mono    { font-family: var(--font-jetbrains, monospace); }
+
+  /* Type scale */
+  .text-hero    { font-size: clamp(44px, 5.5vw, 72px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.08; }
+  .text-section { font-size: clamp(32px, 3.5vw, 44px); font-weight: 500; letter-spacing: -0.02em;  line-height: 1.15; }
+  .text-card    { font-size: clamp(18px, 1.6vw, 22px); font-weight: 500; letter-spacing: -0.015em; }
+  .text-body    { font-size: clamp(15px, 1.1vw, 17px); font-weight: 400; line-height: 1.7; }
+  .text-mono-label {
+    font-family: var(--font-jetbrains, monospace);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #9A9AA2;
+  }
+
+  /*Surfaces */
+  .surface         { background-color: #131417; }
+  .surface-raised  { background-color: #1B1C20; }
+  .border-subtle   { border: 1px solid #26272C; }
+
+  /* text tokens */
+  .text-primary      { color: #F5F5F7; }
+  .text-muted        { color: #9A9AA2; }
+  .text-body-active  { color: #C8C8CC; } /* slightly brighter than muted, for active states */
+  .text-violet       { color: #7C5CFF; }
+  .text-teal         { color: #2DD4BF; }
+
+  /* accent backgrounds */
+  .bg-violet { background-color: #7C5CFF; }
+  .bg-teal   { background-color: #2DD4BF; }
+
+  /*Glow effects */
+  .glow-violet { box-shadow: 0 0 0 1px rgba(124, 92, 255, 0.4), 0 0 24px rgba(124, 92, 255, 0.15); }
+  .glow-teal   { box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.4),  0 0 24px rgba(45, 212, 191, 0.15);  }
+
+  /* Section Layout */
+  .section-padding { padding-top: 140px; padding-bottom: 140px; }
+  .content-width   { max-width: 1240px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
+
+  /* Section divider  */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(38,39,44,0.8) 20%, rgba(38,39,44,0.8) 80%, transparent);
+    border: none;
+    margin: 0;
+  }
 }
