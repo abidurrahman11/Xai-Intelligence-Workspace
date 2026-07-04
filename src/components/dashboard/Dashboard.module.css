@@ -1,0 +1,590 @@
+.dashboardSection {
+  background-color: var(--color-bg);
+  padding: 140px 0;
+}
+
+.dashboardHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.dashboardEyebrow {
+  margin-bottom: 16px;
+}
+
+.dashboardTitle {
+  margin-bottom: 16px;
+}
+
+.dashboardDescription {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.dashboardShell {
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-raised);
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(38, 39, 44, 0.5), 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.browserChrome {
+  height: 40px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.trafficLight {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.trafficLightRed {
+  background-color: #FF5F57;
+}
+
+.trafficLightYellow {
+  background-color: #FEBC2E;
+}
+
+.trafficLightGreen {
+  background-color: #28C840;
+}
+
+.urlBar {
+  flex: 1;
+  max-width: 280px;
+  margin: 0 auto;
+  height: 22px;
+  border-radius: 4px;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 6px;
+}
+
+.urlLabel {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+.appLayout {
+  display: flex;
+  min-height: 640px;
+}
+
+.sidebar {
+  width: 56px;
+  background-color: var(--color-surface-raised);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 4px;
+}
+
+.sidebarLogo {
+  margin-bottom: 20px;
+  padding: 8px;
+}
+
+.sidebarButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-muted);
+  transition: background-color 150ms, color 150ms;
+}
+
+.sidebarButtonActive {
+  background-color: rgba(124, 92, 255, 0.15);
+  color: var(--color-violet);
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topBar {
+  height: 52px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.topBarTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.topBarHeading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topBarActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchBar {
+  height: 30px;
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 7px;
+  min-width: 180px;
+}
+
+.searchLabel {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-teal));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-bg);
+}
+
+.tabBar {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 20px;
+  position: relative;
+}
+
+.tabButton {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-muted);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 150ms;
+  font-family: var(--font-inter);
+}
+
+.tabButtonActive {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.tabUnderline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-violet);
+  border-radius: 2px 2px 0 0;
+}
+
+.tabContent {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.overviewPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metricsRow {
+  display: flex;
+  gap: 12px;
+}
+
+.insightsCard {
+  border-radius: 10px;
+  background-color: #0F1013;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.metricCard {
+  flex: 1;
+  padding: 22px 24px;
+  border-radius: 12px;
+  background-color: #131417;
+  border: 1px solid #26272C;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.metricCardGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at top right, rgba(124, 92, 255, 0.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.metricCardLabel {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 10px;
+}
+
+.metricCardValue {
+  font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.metricCardDelta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.metricCardDeltaPositive {
+  background-color: rgba(45, 212, 191, 0.1);
+  color: #2DD4BF;
+}
+
+.metricCardDeltaNeutral {
+  background-color: rgba(124, 92, 255, 0.1);
+  color: #7C5CFF;
+}
+
+.chartCard {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #0F1013;
+  border: 1px solid var(--color-border);
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.chartEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 4px;
+}
+
+.chartTitle {
+  font-size: 13px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.chartLegend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chartLegendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-teal);
+  box-shadow: 0 0 6px rgba(45, 212, 191, 0.6);
+}
+
+.chartLegendLabel {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+}
+
+.chartSvg {
+  overflow: visible;
+}
+
+.insightsCardHeader {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.insightsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-inter);
+}
+
+.tableHeaderCell {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #26272C;
+  font-family: var(--font-jetbrains);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.tableHeaderCellCenter {
+  text-align: center;
+}
+
+.tableRow {
+  border-bottom: 1px solid rgba(38, 39, 44, 0.5);
+  cursor: default;
+  transition: background-color 150ms ease;
+}
+
+.insightCell {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--color-primary);
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 260px;
+}
+
+.confidenceCell {
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.confidenceBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.confidenceBadgeHigh {
+  color: #2DD4BF;
+  background-color: rgba(45, 212, 191, 0.08);
+}
+
+.confidenceBadgeMedium {
+  color: #7C5CFF;
+  background-color: rgba(124, 92, 255, 0.08);
+}
+
+.confidenceBadgeLow {
+  color: #9A9AA2;
+  background-color: rgba(154, 154, 162, 0.08);
+}
+
+.sourceCell {
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.dateCell {
+  padding: 12px 14px;
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.insightsCardTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.insightsCardCount {
+  font-size: 10px;
+  color: var(--color-violet);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.automationsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.automationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: #0F1013;
+  border: 1px solid var(--color-border);
+}
+
+.automationMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.automationStatusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-muted);
+}
+
+.automationStatusDotActive {
+  background-color: var(--color-teal);
+  box-shadow: 0 0 6px rgba(45, 212, 191, 0.5);
+}
+
+.automationName {
+  font-size: 13px;
+  color: var(--color-primary);
+}
+
+.automationActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.automationRuns {
+  font-size: 11px;
+  color: var(--color-muted);
+}
+
+.automationBadge {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background-color: rgba(38, 39, 44, 0.5);
+  color: var(--color-muted);
+}
+
+.automationBadgeActive {
+  background-color: rgba(45, 212, 191, 0.1);
+  color: var(--color-teal);
+}
+
+.reportsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reportRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background-color: #0F1013;
+  border: 1px solid var(--color-border);
+}
+
+.reportMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reportIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: rgba(124, 92, 255, 0.12);
+  border: 1px solid rgba(124, 92, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reportDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.reportName {
+  font-size: 13px;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.reportMetaText {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.reportType {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background-color: rgba(38, 39, 44, 0.6);
+  color: var(--color-muted);
+}
