@@ -1,0 +1,254 @@
+.sectionShell {
+  height: 300vh;
+  position: relative;
+}
+
+.stickyPanel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 72px 40px 32px;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.headerLabel {
+  margin-bottom: 12px;
+}
+
+.heading {
+  margin-bottom: 0;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.contentGrid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+}
+
+.stagesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progressConnector {
+  position: relative;
+}
+
+.canvasPanel {
+  position: relative;
+  height: 480px;
+  border-radius: 20px;
+  border: 1px solid rgba(38, 39, 44, 0.7);
+  background-color: #0a0b0e;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 -1px 0 rgba(0, 0, 0, 0.4), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.instrumentGrid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(10, 11, 14, 0.5) 0%, rgba(10, 11, 14, 0.95) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stageTag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: rgba(10, 11, 14, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(38, 39, 44, 0.8);
+}
+
+.stageDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transition: background-color 400ms ease, box-shadow 400ms ease;
+}
+
+.stageDotViolet {
+  background-color: #7c5cff;
+  box-shadow: 0 0 5px rgba(124, 92, 255, 0.8);
+}
+
+.stageDotTeal {
+  background-color: #2dd4bf;
+  box-shadow: 0 0 5px rgba(45, 212, 191, 0.8);
+}
+
+.stageLabel {
+  font-size: 11px;
+  color: #9a9aa2;
+  letter-spacing: 0.08em;
+}
+
+.stageCounter {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stageCounterBar {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(38, 39, 44, 0.8);
+  transition: width 400ms ease, background-color 400ms ease;
+}
+
+.activeCounterBar {
+  width: 16px;
+}
+
+.activeCounterBarViolet {
+  background-color: #7c5cff;
+}
+
+.activeCounterBarTeal {
+  background-color: #2dd4bf;
+}
+
+.canvasFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.stageBlock {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.stageBlockLast {
+  padding-bottom: 0;
+}
+
+.stageConnector {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 1px;
+  height: 8px;
+  margin-top: 1px;
+  transition: background-color 400ms ease;
+}
+
+.stageConnectorPast {
+  background-color: rgba(45, 212, 191, 0.3);
+}
+
+.stageConnectorDefault {
+  background-color: rgba(38, 39, 44, 0.5);
+}
+
+.stageCard {
+  padding: 28px 0 28px 28px;
+  border-left: 2px solid;
+  transition: border-left-color 400ms ease;
+}
+
+.stageCardActive {
+  border-left-color: #2dd4bf;
+}
+
+.stageCardPast {
+  border-left-color: rgba(45, 212, 191, 0.25);
+}
+
+.stageCardDefault {
+  border-left-color: rgba(38, 39, 44, 0.4);
+}
+
+.stageLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transition: color 350ms ease;
+}
+
+.stageLabelActive {
+  color: #2dd4bf;
+}
+
+.stageLabelInactive {
+  color: #9a9aa2;
+}
+
+.stageTitle {
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  transition: color 350ms ease;
+}
+
+.stageTitleActive {
+  color: #f5f5f7;
+}
+
+.stageTitleInactive {
+  color: #6a6a72;
+}
+
+.stageBody {
+  font-size: 14px;
+  line-height: 1.72;
+  max-width: 320px;
+  transition: color 350ms ease;
+}
+
+.stageBodyActive {
+  color: #c8c8cc;
+}
+
+.stageBodyInactive {
+  color: #6a6a72;
+}
