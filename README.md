@@ -12,6 +12,8 @@ The implementation focuses on clarity, information flow, and visual rhythm. It i
 
 My approach to the brand was to make Xai feel precise, calm, and premium. I used restrained colors, strong typography, subtle motion, and a consistent visual rhythm so the interface reads like a serious intelligence product rather than a generic SaaS template.
 
+For styling, I used inline CSS on Framer Motion elements where the animation needed direct control, and separate CSS files for each component for the rest of the styling. This keeps the implementation easier to scan, separates concerns cleanly, and brings more clarity to the codebase.
+
 ## Project Structure
 
 ```txt
