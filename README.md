@@ -4,6 +4,8 @@ Live site: https://xai-intelligence-workspace-nine.vercel.app
 
 Project walkthrough video: https://youtu.be/YznPE3UvK8w
 
+Figma design: https://www.figma.com/design/3g0j0AhC25E7DjBNqJXFVg/Xai-Workspace?node-id=0-1&t=9nX7v2BFdfQayXUa-1
+
 ## Overview
 
 Xai is a dark-mode, desktop-first Next.js landing experience for an AI data-intelligence platform. The whole page follows a clear **Chaos → Order** narrative: fragmented data becomes structured intelligence through scroll-driven sections, a 3D hero field, a pinned insight flow, a dashboard preview, and an orbital stories section.
