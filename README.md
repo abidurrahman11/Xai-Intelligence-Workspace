@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Xai — Intelligence Workspace
 
-## Getting Started
+Live site: https://xai-intelligence-workspace-nine.vercel.app
 
-First, run the development server:
+Project walkthrough video: https://youtu.be/YznPE3UvK8w
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Overview
+
+Xai is a dark-mode, desktop-first Next.js landing experience for an AI data-intelligence platform. The whole page follows a clear **Chaos → Order** narrative: fragmented data becomes structured intelligence through scroll-driven sections, a 3D hero field, a pinned insight flow, a dashboard preview, and an orbital stories section.
+
+The implementation focuses on clarity, information flow, and visual rhythm. It is fully responsive, efficient, and the text content is tightly matched to the animations so the motion supports the message instead of distracting from it.
+
+My approach to the brand was to make Xai feel precise, calm, and premium. I used restrained colors, strong typography, subtle motion, and a consistent visual rhythm so the interface reads like a serious intelligence product rather than a generic SaaS template.
+
+## Project Structure
+
+```txt
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── navigation/
+│   ├── hero/
+│   ├── insight-flow/
+│   ├── dashboard/
+│   ├── stories/
+│   ├── pricing/
+│   └── footer/
+└── lib/
+    └── mock-data.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Framer Motion
+- React Three Fiber + Three.js + Drei
+- Tailwind CSS v4
+- CSS Modules
+- Google Fonts via `next/font`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Local Development
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open `http://localhost:3000` in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For a production check:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npm start
+```
 
-## Deploy on Vercel
+## Animation And Interaction Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Hero section: client-only 3D particle scene with cursor and scroll response
+- Insight Flow: scroll-pinned three-stage narrative that shifts from ingestion to analysis to generated insight
+- Dashboard: animated metrics, chart reveal, and table transitions for a product-like feel
+- Constellation: draggable and scroll-reactive orbital carousel built to reinforce the “Order from Chaos” theme
+- Reduced-motion support is respected across the interactive sections
