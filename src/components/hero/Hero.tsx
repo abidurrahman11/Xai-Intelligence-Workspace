@@ -162,13 +162,13 @@ export default function Hero() {
         <motion.div variants={heroItem} className={styles.heroActions}>
           {/* Primary */}
           <motion.a
-            href="#platform"
+            href="#pricing"
             whileHover={{ scale: 1.03, boxShadow: '0 0 44px rgba(124,92,255,0.42)' }}
             whileTap={{ scale: 0.97 }}
             className={styles.heroCtaPrimary}
             id="hero-cta-primary"
           >
-            Explore the Workspace
+            Start Free Trial
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

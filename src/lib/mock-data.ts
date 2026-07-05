@@ -46,12 +46,70 @@ export interface ClientCard {
   industry: string;
 }
 
+export interface PricingPlan {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+  cta: string;
+}
+
 // ── Navigation ──────────────────────────────
 export const navLinks: NavLink[] = [
   { label: 'Product',  href: '#product'  },
   { label: 'Platform', href: '#platform' },
   { label: 'Insights', href: '#insights' },
-  { label: 'Company',  href: '#company'  },
+  { label: 'Pricing',  href: '#pricing'  },
+];
+
+// ── Pricing Plans ──────────────────────────────
+export const pricingPlans: PricingPlan[] = [
+  {
+    id:          'trial',
+    name:        'Free Trial',
+    price:       '$0',
+    period:      'for 14 days',
+    description: 'Full workspace access. No credit card required.',
+    features: [
+      'All core integrations',
+      'Up to 3 data sources',
+      'Real-time insight alerts',
+      'Community support',
+    ],
+    cta: 'Start Free Trial',
+  },
+  {
+    id:          'monthly',
+    name:        'Monthly',
+    price:       '$49',
+    period:      'per month',
+    description: 'For teams ready to move from insight to action.',
+    features: [
+      'Unlimited data sources',
+      'AI anomaly detection',
+      'Custom automations',
+      'Priority email support',
+    ],
+    highlighted: true,
+    cta: 'Get Started',
+  },
+  {
+    id:          'yearly',
+    name:        'Yearly',
+    price:       '$468',
+    period:      'per year · save 20%',
+    description: 'Best value for teams committed to data intelligence.',
+    features: [
+      'Everything in Monthly',
+      'Dedicated success manager',
+      'Advanced audit logs',
+      'SSO & team permissions',
+    ],
+    cta: 'Get Started',
+  },
 ];
 
 // ── Dashboard Metrics ────────────────────────

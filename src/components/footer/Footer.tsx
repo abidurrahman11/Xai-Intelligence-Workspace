@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import styles from './Footer.module.css';
 
 // ── social SVG icons ──
@@ -33,52 +32,6 @@ export default function Footer() {
   return (
     <footer id="company" aria-label="Footer" className={styles.footer}>
       <div aria-hidden="true" className={styles.backgroundGlow} />
-
-      {/* ── CTA block ──*/}
-      <div className={`${styles.ctaSection} content-width`}>
-        <div aria-hidden="true" className={styles.ctaGlow} />
-
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className={`text-mono-label ${styles.eyebrow}`}
-        >
-          Early Access · {new Date().getFullYear()}
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className={`font-display ${styles.headline}`}
-        >
-          Ready to find order in your data?
-        </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className={styles.ctaAction}
-        >
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            id="footer-request-access"
-            className={styles.ctaLink}
-          >
-            Request Early Access
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </motion.a>
-        </motion.div>
-      </div>
 
       {/* ── footer nav ───── */}
       <div className={`${styles.footerNav} content-width`}>
@@ -114,7 +67,10 @@ export default function Footer() {
               <ul className={styles.navList}>
                 {col.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className={styles.navLink}>
+                    <a
+                      href={link === 'Pricing' ? '#pricing' : '#'}
+                      className={styles.navLink}
+                    >
                       {link}
                     </a>
                   </li>

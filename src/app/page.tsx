@@ -2,7 +2,8 @@ import Navigation    from '@/components/navigation/Navigation';
 import Hero          from '@/components/hero/Hero';
 import InsightFlow   from '@/components/insight-flow/InsightFlow';
 import Dashboard     from '@/components/dashboard/Dashboard';
-import Constellation from '@/components/constellation/Constellation';
+import Constellation from '@/components/stories/Constellation';
+import Pricing       from '@/components/pricing/Pricing';
 import Footer        from '@/components/footer/Footer';
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <hr className="section-divider" aria-hidden="true" />
       <Dashboard />
       <Constellation />
+      <Pricing />
       <Footer />
     </main>
   );

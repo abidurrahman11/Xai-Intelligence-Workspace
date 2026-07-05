@@ -38,7 +38,7 @@ export default function Navigation() {
       { id: 'product', href: '#product' },
       { id: 'platform', href: '#platform' },
       { id: 'insights', href: '#insights' },
-      { id: 'company', href: '#company' },
+      { id: 'pricing', href: '#pricing' },
     ];
 
     const observerOptions = {
@@ -205,8 +205,8 @@ export default function Navigation() {
         {/* CTA */}
         <motion.a
           variants={navItem}
-          href="#company"
-          onClick={(e) => handleLinkClick(e, '#company')}
+          href="#pricing"
+          onClick={(e) => handleLinkClick(e, '#pricing')}
           whileHover={{
             scale:     1.02,
             boxShadow: '0 0 20px rgba(124,92,255,0.38)',
@@ -227,9 +227,9 @@ export default function Navigation() {
             letterSpacing: '0.01em',
             boxShadow: '0 0 0 0 rgba(124,92,255,0)',
           }}
-          id="nav-request-access"
+          id="nav-start-free"
         >
-          Request Access
+          Start Free
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M2 6H10M7 3L10 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
