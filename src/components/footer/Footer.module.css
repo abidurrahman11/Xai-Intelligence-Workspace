@@ -164,3 +164,26 @@
     gap: 8px;
   }
 }
+
+@media (max-width: 520px) {
+  .footerNav {
+    padding: 56px 18px 42px;
+  }
+
+  .navColumns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+    width: 100%;
+  }
+
+  .bottomBar {
+    padding: 18px;
+  }
+
+  .watermark {
+    width: 240px;
+    height: 240px;
+    bottom: -44px;
+  }
+}

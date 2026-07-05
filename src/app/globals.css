@@ -113,6 +113,58 @@
   }
 }
 
+@media (max-width: 960px) {
+  @layer utilities {
+    .section-padding {
+      padding-top: 104px;
+      padding-bottom: 104px;
+    }
+
+    .content-width {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  @layer utilities {
+    .text-hero {
+      font-size: clamp(38px, 13vw, 52px);
+      line-height: 1.02;
+    }
+
+    .text-section {
+      font-size: clamp(28px, 9vw, 36px);
+      line-height: 1.12;
+    }
+
+    .text-body {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .text-mono-label {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .section-padding {
+      padding-top: 84px;
+      padding-bottom: 84px;
+    }
+
+    .content-width {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .instrument-grid {
+      background-size: 28px 28px;
+    }
+  }
+}
+
 /* ───────────────────────────Keyframe animations────────────────────── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(20px); }

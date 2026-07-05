@@ -228,3 +228,108 @@
   inset: 0;
   z-index: 1;
 }
+
+@media (max-width: 960px) {
+  .constellationSection {
+    padding: 104px 0;
+  }
+
+  .constellationIntro {
+    margin-bottom: 48px;
+  }
+
+  .constellationStage {
+    height: clamp(520px, 72vw, 620px);
+    border-radius: 18px;
+  }
+
+  .constellationCompass {
+    width: 620px;
+    height: 620px;
+  }
+
+  .orbitHtml,
+  .cardShell {
+    width: 380px;
+  }
+
+  .cardShell {
+    padding: 28px 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .constellationSection {
+    padding: 84px 0;
+  }
+
+  .constellationIntro {
+    text-align: left;
+    margin-bottom: 34px;
+  }
+
+  .constellationBody {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .constellationStage {
+    height: 500px;
+    border-radius: 14px;
+  }
+
+  .constellationCompass {
+    width: 480px;
+    height: 480px;
+  }
+
+  .orbitHtml,
+  .cardShell {
+    width: min(320px, calc(100vw - 48px));
+  }
+
+  .cardShell {
+    padding: 24px 22px;
+    border-radius: 14px;
+  }
+
+  .cardAccent {
+    left: 20px;
+    right: 20px;
+  }
+
+  .cardHeader {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .cardLogo {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+
+  .cardCompany {
+    font-size: 17px;
+  }
+
+  .cardIndustry,
+  .cardStatLabel {
+    font-size: 10px;
+    letter-spacing: 0.07em;
+  }
+
+  .cardStat {
+    font-size: 38px;
+  }
+
+  .cardHeadline {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .cardBody {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+}

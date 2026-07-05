@@ -252,3 +252,99 @@
 .stageBodyInactive {
   color: #6a6a72;
 }
+
+@media (max-width: 960px) {
+  .sectionShell {
+    height: auto;
+    min-height: 0;
+  }
+
+  .stickyPanel {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: 104px 0;
+  }
+
+  .header {
+    padding: 0 28px 44px;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 0 28px;
+  }
+
+  .stagesColumn {
+    order: 2;
+  }
+
+  .canvasPanel {
+    order: 1;
+    height: clamp(320px, 52vw, 460px);
+    border-radius: 16px;
+  }
+
+  .stageBody {
+    max-width: 560px;
+  }
+
+  .stageCard {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .stageTitleInactive {
+    color: #c8c8cc;
+  }
+
+  .stageBodyInactive {
+    color: #9a9aa2;
+  }
+}
+
+@media (max-width: 640px) {
+  .stickyPanel {
+    padding: 84px 0;
+  }
+
+  .header {
+    padding: 0 18px 34px;
+    text-align: left;
+  }
+
+  .contentGrid {
+    gap: 30px;
+    padding: 0 18px;
+  }
+
+  .canvasPanel {
+    height: 300px;
+    border-radius: 14px;
+  }
+
+  .stageTag {
+    max-width: calc(100% - 76px);
+  }
+
+  .stageLabel {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stageCard {
+    padding: 22px 0 22px 18px;
+  }
+
+  .stageTitle {
+    font-size: 20px;
+  }
+
+  .stageBody {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+}

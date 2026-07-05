@@ -228,6 +228,7 @@ export default function Navigation() {
             boxShadow: '0 0 0 0 rgba(124,92,255,0)',
           }}
           id="nav-start-free"
+          className={styles.navCta}
         >
           Start Free
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

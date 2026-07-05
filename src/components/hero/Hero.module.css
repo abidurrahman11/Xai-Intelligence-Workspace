@@ -143,3 +143,50 @@
   background: linear-gradient(135deg, #5b3fcc, var(--color-teal));
   margin-left: -6px;
 }
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 92svh;
+    align-items: flex-start;
+    padding-top: 132px;
+  }
+
+  .heroContent {
+    max-width: 680px;
+    padding: 0 28px;
+  }
+
+  .heroLabel,
+  .heroHeading {
+    margin-bottom: 22px;
+  }
+
+  .heroSubtext {
+    margin-bottom: 34px;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroSection {
+    min-height: 86svh;
+    padding-top: 118px;
+    padding-bottom: 56px;
+  }
+
+  .heroContent {
+    padding: 0 18px;
+  }
+
+  .heroActions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroCtaPrimary,
+  .heroSocialProof {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+}

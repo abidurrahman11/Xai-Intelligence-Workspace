@@ -33,6 +33,10 @@
   display: inline-block;
 }
 
+.navCta {
+  flex-shrink: 0;
+}
+
 @media (max-width: 768px) {
   .navInner {
     padding: 0 24px;
@@ -40,5 +44,47 @@
 
   .navList {
     gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .navInner {
+    height: 58px;
+    padding: 0 18px;
+  }
+
+  .nav {
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navList {
+    gap: 18px;
+    padding: 0 8px;
+    white-space: nowrap;
+  }
+
+  .logoText {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .navInner {
+    gap: 14px;
+  }
+
+  .navList {
+    gap: 16px;
+    padding-left: 4px;
+  }
+
+  .navCta {
+    display: none !important;
   }
 }

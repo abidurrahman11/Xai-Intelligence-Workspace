@@ -220,3 +220,47 @@
     margin-bottom: 48px;
   }
 }
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 84px 0;
+  }
+
+  .header {
+    text-align: left;
+    margin-bottom: 34px;
+  }
+
+  .headerGlow {
+    width: 420px;
+    height: 280px;
+    top: 40px;
+  }
+
+  .headline {
+    font-size: clamp(30px, 10vw, 40px);
+  }
+
+  .subtext {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .plansGrid {
+    max-width: none;
+    gap: 16px;
+  }
+
+  .planCard {
+    padding: 28px 22px;
+    border-radius: 12px;
+  }
+
+  .priceRow {
+    flex-wrap: wrap;
+  }
+
+  .price {
+    font-size: 36px;
+  }
+}
