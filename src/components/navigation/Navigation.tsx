@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { navLinks } from '@/lib/mock-data';
 import styles from './Navigation.module.css';
 
@@ -22,6 +22,7 @@ const navItem = {
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   const isProgrammaticScrollRef = useRef(false);
@@ -30,6 +31,30 @@ export default function Navigation() {
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setScrolled(latest > 60);
   });
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth > 680) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [menuOpen]);
 
   // auto detect active section, based on scroll position
   useEffect(() => {
@@ -87,6 +112,7 @@ export default function Navigation() {
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setMenuOpen(false);
     
     isProgrammaticScrollRef.current = true;
     setActiveLink(href);
@@ -130,7 +156,7 @@ export default function Navigation() {
         variants={navContainer}
         initial="hidden"
         animate="show"
-        className={styles.navInner}
+        className={`${styles.navInner} ${menuOpen ? styles.navInnerOpen : ''}`}
       >
         {/* Logo */}
         <motion.a
@@ -155,7 +181,11 @@ export default function Navigation() {
         </motion.a>
 
         {/* nav links */}
-        <nav aria-label="Main navigation" className={styles.nav}>
+        <nav
+          id="primary-navigation"
+          aria-label="Main navigation"
+          className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}
+        >
           <ul className={styles.navList}>
             {navLinks.map((link) => {
               const isActive = activeLink === link.href;
@@ -199,6 +229,19 @@ export default function Navigation() {
                 </motion.li>
               );
             })}
+            <motion.li variants={navItem} className={styles.mobileCtaItem}>
+              <motion.a
+                href="#pricing"
+                onClick={(e) => handleLinkClick(e, '#pricing')}
+                whileTap={{ scale: 0.98 }}
+                className={styles.mobileCta}
+              >
+                Start Free
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6H10M7 3L10 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </motion.a>
+            </motion.li>
           </ul>
         </nav>
 
@@ -235,7 +278,35 @@ export default function Navigation() {
             <path d="M2 6H10M7 3L10 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </motion.a>
+
+        <motion.button
+          variants={navItem}
+          type="button"
+          className={styles.menuButton}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setMenuOpen((isOpen) => !isOpen)}
+          whileTap={{ scale: 0.96 }}
+        >
+          <span className={styles.menuButtonLine} />
+          <span className={styles.menuButtonLine} />
+        </motion.button>
       </motion.div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className={styles.mobileScrim}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
