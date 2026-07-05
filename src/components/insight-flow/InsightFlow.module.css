@@ -29,7 +29,7 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+  background: linear-gradient(135deg, var(--color-violet) 0%, var(--color-teal) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -63,10 +63,10 @@
   position: relative;
   height: 480px;
   border-radius: 20px;
-  border: 1px solid rgba(38, 39, 44, 0.7);
-  background-color: #0a0b0e;
+  border: 1px solid var(--theme-panel-border);
+  background-color: var(--theme-canvas-bg);
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 -1px 0 rgba(0, 0, 0, 0.4), 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--theme-inset-panel);
 }
 
 .instrumentGrid {
@@ -80,7 +80,7 @@
 .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(10, 11, 14, 0.5) 0%, rgba(10, 11, 14, 0.95) 100%);
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, var(--theme-canvas-vignette-start) 0%, var(--theme-canvas-vignette-end) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -95,9 +95,9 @@
   gap: 8px;
   padding: 6px 12px;
   border-radius: 6px;
-  background-color: rgba(10, 11, 14, 0.88);
+  background-color: color-mix(in srgb, var(--theme-canvas-bg) 88%, transparent);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(38, 39, 44, 0.8);
+  border: 1px solid var(--theme-grid-strong);
 }
 
 .stageDot {
@@ -108,18 +108,18 @@
 }
 
 .stageDotViolet {
-  background-color: #7c5cff;
+  background-color: var(--color-violet);
   box-shadow: 0 0 5px rgba(124, 92, 255, 0.8);
 }
 
 .stageDotTeal {
-  background-color: #2dd4bf;
+  background-color: var(--color-teal);
   box-shadow: 0 0 5px rgba(45, 212, 191, 0.8);
 }
 
 .stageLabel {
   font-size: 11px;
-  color: #9a9aa2;
+  color: var(--color-muted);
   letter-spacing: 0.08em;
 }
 
@@ -137,7 +137,7 @@
   width: 4px;
   height: 4px;
   border-radius: 2px;
-  background-color: rgba(38, 39, 44, 0.8);
+  background-color: var(--theme-grid-strong);
   transition: width 400ms ease, background-color 400ms ease;
 }
 
@@ -146,11 +146,11 @@
 }
 
 .activeCounterBarViolet {
-  background-color: #7c5cff;
+  background-color: var(--color-violet);
 }
 
 .activeCounterBarTeal {
-  background-color: #2dd4bf;
+  background-color: var(--color-teal);
 }
 
 .canvasFrame {
@@ -183,7 +183,7 @@
 }
 
 .stageConnectorDefault {
-  background-color: rgba(38, 39, 44, 0.5);
+  background-color: var(--theme-grid-line);
 }
 
 .stageCard {
@@ -193,7 +193,7 @@
 }
 
 .stageCardActive {
-  border-left-color: #2dd4bf;
+  border-left-color: var(--color-teal);
 }
 
 .stageCardPast {
@@ -201,7 +201,7 @@
 }
 
 .stageCardDefault {
-  border-left-color: rgba(38, 39, 44, 0.4);
+  border-left-color: var(--theme-grid-line);
 }
 
 .stageLabel {
@@ -214,11 +214,11 @@
 }
 
 .stageLabelActive {
-  color: #2dd4bf;
+  color: var(--color-teal);
 }
 
 .stageLabelInactive {
-  color: #9a9aa2;
+  color: var(--color-muted);
 }
 
 .stageTitle {
@@ -231,11 +231,11 @@
 }
 
 .stageTitleActive {
-  color: #f5f5f7;
+  color: var(--color-primary);
 }
 
 .stageTitleInactive {
-  color: #6a6a72;
+  color: var(--theme-subtle);
 }
 
 .stageBody {
@@ -246,11 +246,11 @@
 }
 
 .stageBodyActive {
-  color: #c8c8cc;
+  color: var(--theme-body-active);
 }
 
 .stageBodyInactive {
-  color: #6a6a72;
+  color: var(--theme-subtle);
 }
 
 @media (max-width: 960px) {
@@ -297,11 +297,11 @@
   }
 
   .stageTitleInactive {
-    color: #c8c8cc;
+    color: var(--theme-body-active);
   }
 
   .stageBodyInactive {
-    color: #9a9aa2;
+    color: var(--color-muted);
   }
 }
 

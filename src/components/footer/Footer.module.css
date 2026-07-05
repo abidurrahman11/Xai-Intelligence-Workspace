@@ -129,7 +129,7 @@
 
 .bottomMeta {
   font-size: 11px;
-  color: rgba(154, 154, 162, 0.4);
+  color: color-mix(in srgb, var(--color-muted) 46%, transparent);
   letter-spacing: 0.04em;
 }
 

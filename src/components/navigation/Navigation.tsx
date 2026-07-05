@@ -23,10 +23,26 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const { scrollY } = useScroll();
 
   const isProgrammaticScrollRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const storedTheme = window.localStorage.getItem('xai-theme');
+    const rootTheme = document.documentElement.dataset.theme;
+    const nextTheme = storedTheme === 'light' || storedTheme === 'dark'
+      ? storedTheme
+      : rootTheme === 'light'
+        ? 'light'
+        : 'dark';
+
+    document.documentElement.dataset.theme = nextTheme;
+    setTheme(nextTheme);
+  }, []);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setScrolled(latest > 60);
@@ -133,24 +149,18 @@ export default function Navigation() {
     }, 1000);
   };
 
+  const handleThemeToggle = () => {
+    setTheme((currentTheme) => {
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = nextTheme;
+      window.localStorage.setItem('xai-theme', nextTheme);
+      return nextTheme;
+    });
+  };
+
   return (
     <motion.header
-      // Framer motion will control all animated values
-      animate={{
-        backgroundColor: scrolled ? 'rgba(10, 10, 11, 0.82)' : 'rgba(10, 10, 11, 0)',
-        borderBottomColor: scrolled ? 'rgba(38, 39, 44, 0.6)' : 'rgba(38, 39, 44, 0)',
-      }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        backdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
-        borderBottom: '1px solid',
-      }}
+      className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}
     >
       <motion.div
         variants={navContainer}
@@ -168,7 +178,6 @@ export default function Navigation() {
             fontSize: '20px',
             fontWeight: 600,
             letterSpacing: '-0.03em',
-            color: '#F5F5F7',
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
@@ -198,8 +207,7 @@ export default function Navigation() {
                   <motion.a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    animate={{ color: isActive ? '#F5F5F7' : '#9A9AA2' }}
-                    whileHover={{ color: '#F5F5F7' }}
+                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
                     style={{
                       fontFamily: 'var(--font-inter)',
                       fontSize: '14px',
@@ -220,7 +228,7 @@ export default function Navigation() {
                         left: 0,
                         right: 0,
                         height: '1.5px',
-                        backgroundColor: '#7C5CFF',
+                        backgroundColor: 'var(--color-violet)',
                         borderRadius: '1px',
                       }}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
@@ -261,8 +269,8 @@ export default function Navigation() {
             gap: '6px',
             padding: '8px 18px',
             borderRadius: '8px',
-            backgroundColor: '#7C5CFF',
-            color:'#F5F5F7',
+            backgroundColor: 'var(--color-violet)',
+            color:'var(--theme-accent-contrast)',
             fontFamily:'var(--font-inter)',
             fontSize: '13px',
             fontWeight:500,
@@ -279,19 +287,45 @@ export default function Navigation() {
           </svg>
         </motion.a>
 
-        <motion.button
-          variants={navItem}
-          type="button"
-          className={styles.menuButton}
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={menuOpen}
-          aria-controls="primary-navigation"
-          onClick={() => setMenuOpen((isOpen) => !isOpen)}
-          whileTap={{ scale: 0.96 }}
-        >
-          <span className={styles.menuButtonLine} />
-          <span className={styles.menuButtonLine} />
-        </motion.button>
+        <div className={styles.actions}>
+          <motion.button
+            variants={navItem}
+            type="button"
+            className={styles.themeButton}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            aria-pressed={theme === 'light'}
+            onClick={handleThemeToggle}
+            whileTap={{ scale: 0.96 }}
+          >
+            <span className={styles.themeIcon} aria-hidden="true">
+              {theme === 'dark' ? (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="8" r="3.4" stroke="currentColor" strokeWidth="1.4" />
+                  <path d="M8 1.3v1.5M8 13.2v1.5M1.3 8h1.5M13.2 8h1.5M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M12.8 3.2l-1.1 1.1M4.3 11.7l-1.1 1.1" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M12.2 10.4A5.1 5.1 0 0 1 5.6 3.8a5.7 5.7 0 1 0 6.6 6.6Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                </svg>
+              )}
+            </span>
+          </motion.button>
+
+          <motion.button
+            variants={navItem}
+            type="button"
+            className={styles.menuButton}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setMenuOpen((isOpen) => !isOpen)}
+            whileTap={{ scale: 0.96 }}
+          >
+            <span className={styles.menuButtonLine} />
+            <span className={styles.menuButtonLine} />
+          </motion.button>
+        </div>
       </motion.div>
 
       <AnimatePresence>

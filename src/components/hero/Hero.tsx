@@ -176,7 +176,7 @@ export default function Hero() {
 
           {/* trust proof badge btn" */}
           <motion.div
-            whileHover={{ borderColor: 'rgba(124,92,255,0.4)', color: '#F5F5F7' }}
+            whileHover={{ borderColor: 'rgba(124,92,255,0.4)', color: 'var(--color-primary)' }}
             className={styles.heroSocialProof}
           >
             {/* avatarStack — 3 profiles */}

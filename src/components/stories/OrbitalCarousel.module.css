@@ -23,13 +23,13 @@
   width: 440px;
   padding: 32px 36px;
   font-family: var(--font-inter, system-ui, sans-serif);
-  color: #f5f5f7;
-  background: rgba(19, 20, 23, 0.75);
+  color: var(--color-primary);
+  background: var(--theme-glass-bg);
   backdrop-filter: blur(var(--card-blur, 12px));
   -webkit-backdrop-filter: blur(var(--card-blur, 12px));
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--theme-glass-border);
   border-radius: 20px;
-  box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: var(--theme-shadow-card);
   transition: border-color 300ms ease, box-shadow 300ms ease;
   transform-origin: center center;
   opacity: var(--card-opacity, 1);
@@ -72,14 +72,14 @@
 .cardCompany {
   font-size: 20px;
   font-weight: 600;
-  color: #f5f5f7;
+  color: var(--color-primary);
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
 .cardIndustry {
   font-size: 12px;
-  color: #9a9aa2;
+  color: var(--color-muted);
   letter-spacing: 0.09em;
   text-transform: uppercase;
   margin-top: 2px;
@@ -107,7 +107,7 @@
 
 .cardStatLabel {
   font-size: 12px;
-  color: #9a9aa2;
+  color: var(--color-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 5px;
@@ -117,7 +117,7 @@
 .cardHeadline {
   font-size: 17px;
   font-weight: 500;
-  color: #c8c8cc;
+  color: var(--theme-body-active);
   line-height: 1.5;
   margin-bottom: 12px;
   letter-spacing: -0.005em;
@@ -125,7 +125,7 @@
 
 .cardBody {
   font-size: 14px;
-  color: #6a6a72;
+  color: var(--theme-subtle);
   line-height: 1.65;
   letter-spacing: 0.005em;
 }
@@ -140,7 +140,7 @@
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #4a4a52;
+  color: var(--theme-faint);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -153,7 +153,7 @@
 
 .constellationSection {
   position: relative;
-  background-color: #0a0a0b;
+  background-color: var(--color-bg);
   padding: 140px 0;
   overflow: hidden;
 }
@@ -161,7 +161,7 @@
 .constellationBackdrop {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(124, 92, 255, 0.04) 0%, transparent 70%);
+  background-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(124, 92, 255, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -190,7 +190,7 @@
 
 .constellationMeta {
   font-size: 11px;
-  color: rgba(154, 154, 162, 0.5);
+  color: color-mix(in srgb, var(--color-muted) 56%, transparent);
   letter-spacing: 0.08em;
   margin-top: 8px;
 }
@@ -200,7 +200,7 @@
   height: 660px;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(38, 39, 44, 0.5);
+  border: 1px solid var(--theme-panel-border);
 }
 
 .constellationCompass {
@@ -219,7 +219,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 45%, rgba(10, 10, 11, 0.85) 100%);
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 45%, var(--theme-vignette) 100%);
   pointer-events: none;
 }
 

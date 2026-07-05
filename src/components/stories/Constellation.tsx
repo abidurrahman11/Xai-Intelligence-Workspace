@@ -79,10 +79,10 @@ export default function Constellation() {
             className={`animate-spin-slow ${styles.constellationCompass}`}
           >
             <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none">
-              <circle cx="400" cy="400" r="380" stroke="rgba(124,92,255,0.12)" strokeWidth="1" strokeDasharray="4 8" />
-              <circle cx="400" cy="400" r="300" stroke="rgba(45,212,191,0.06)" strokeWidth="1.5" />
-              <circle cx="400" cy="400" r="220" stroke="rgba(124,92,255,0.04)" strokeWidth="1" strokeDasharray="40 2" />
-              <path d="M400 10v12M400 778v12M10 400h12M778 400h12" stroke="rgba(124,92,255,0.22)" strokeWidth="1.5" />
+              <circle cx="400" cy="400" r="380" stroke="color-mix(in srgb, var(--color-violet) 18%, transparent)" strokeWidth="1" strokeDasharray="4 8" />
+              <circle cx="400" cy="400" r="300" stroke="color-mix(in srgb, var(--color-teal) 12%, transparent)" strokeWidth="1.5" />
+              <circle cx="400" cy="400" r="220" stroke="color-mix(in srgb, var(--color-violet) 8%, transparent)" strokeWidth="1" strokeDasharray="40 2" />
+              <path d="M400 10v12M400 778v12M10 400h12M778 400h12" stroke="color-mix(in srgb, var(--color-violet) 26%, transparent)" strokeWidth="1.5" />
             </svg>
           </div>
 
@@ -100,4 +100,3 @@ export default function Constellation() {
     </section>
   );
 }
-

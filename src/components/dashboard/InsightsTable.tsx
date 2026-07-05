@@ -45,12 +45,6 @@ export default function InsightsTable() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
               className={styles.tableRow}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLTableRowElement).style.backgroundColor = '#131417';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLTableRowElement).style.backgroundColor = 'transparent';
-              }}
             >
               {/* Insight text */}
               <td className={styles.insightCell}>

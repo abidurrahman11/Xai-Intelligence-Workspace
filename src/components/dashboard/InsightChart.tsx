@@ -75,13 +75,13 @@ export default function InsightChart() {
         <defs>
           {/* Area gradient */}
           <linearGradient id="chart-area-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#2DD4BF" stopOpacity="0.28" />
-            <stop offset="100%" stopColor="#2DD4BF" stopOpacity="0"    />
+            <stop offset="0%"   stopColor="var(--color-teal)" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="var(--color-teal)" stopOpacity="0"    />
           </linearGradient>
           {/* Line gradient */}
           <linearGradient id="chart-line-grad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stopColor="#7C5CFF" />
-            <stop offset="100%" stopColor="#2DD4BF" />
+            <stop offset="0%"   stopColor="var(--color-violet)" />
+            <stop offset="100%" stopColor="var(--color-teal)" />
           </linearGradient>
           {/* Clip path for draw-on animation */}
           <clipPath id="chart-clip">
@@ -102,7 +102,7 @@ export default function InsightChart() {
             <line
               x1={PADDING.left} y1={toY(tick)}
               x2={W - PADDING.right} y2={toY(tick)}
-              stroke="#303138"
+              stroke="var(--theme-grid-strong)"
               strokeWidth="1"
               strokeDasharray="4 6"
             />
@@ -112,7 +112,7 @@ export default function InsightChart() {
               textAnchor="end"
               fontSize="10"
               fontFamily="var(--font-jetbrains)"
-              fill="#9A9AA2"
+              fill="var(--color-muted)"
             >
               {tick}
             </text>
@@ -128,7 +128,7 @@ export default function InsightChart() {
             textAnchor="middle"
             fontSize="10"
             fontFamily="var(--font-jetbrains)"
-            fill="#9A9AA2"
+            fill="var(--color-muted)"
           >
             {`Day ${day}`}
           </text>
@@ -153,7 +153,7 @@ export default function InsightChart() {
           cx={toX(chartData.length - 1)}
           cy={toY(chartData[chartData.length - 1].value)}
           r={4}
-          fill="#2DD4BF"
+          fill="var(--color-teal)"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0 }}
           transition={{ delay: 1.5, duration: 0.3 }}

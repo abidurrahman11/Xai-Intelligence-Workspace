@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const jakarta = Plus_Jakarta_Sans({
@@ -40,33 +41,38 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${jakarta.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body>
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                let originalWarn = console.warn;
-                Object.defineProperty(console, 'warn', {
-                  get() {
-                    return function(...args) {
-                      if (
-                        args[0] &&
-                        typeof args[0] === 'string' &&
-                        (args[0].includes('THREE.Clock') || args[0].includes('Clock: This module has been deprecated'))
-                      ) {
-                        return;
-                      }
-                      originalWarn.apply(console, args);
-                    };
-                  },
-                  set(newWarn) {
-                    originalWarn = newWarn;
-                  },
-                  configurable: true,
-                  enumerable: true,
-                });
+                try {
+                  var storedTheme = window.localStorage.getItem('xai-theme');
+                  var systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                  var theme = storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : systemTheme;
+                  document.documentElement.dataset.theme = theme;
+                } catch (error) {
+                  document.documentElement.dataset.theme = 'dark';
+                }
+
+                var originalWarn = console.warn.bind(console);
+                console.warn = function() {
+                  var firstArg = arguments[0];
+                  if (
+                    firstArg &&
+                    typeof firstArg === 'string' &&
+                    (firstArg.includes('THREE.Clock') || firstArg.includes('Clock: This module has been deprecated'))
+                  ) {
+                    return;
+                  }
+                  originalWarn.apply(console, arguments);
+                };
               })();
             `
           }}

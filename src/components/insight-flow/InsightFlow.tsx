@@ -113,7 +113,7 @@ export default function InsightFlow() {
               <div
                 className={styles.stageDot}
                 style={{
-                  backgroundColor: activeStage === 2 ? '#2DD4BF' : '#7C5CFF',
+                  backgroundColor: activeStage === 2 ? 'var(--color-teal)' : 'var(--color-violet)',
                   boxShadow: activeStage === 2
                     ? '0 0 5px rgba(45,212,191,0.8)'
                     : '0 0 5px rgba(124,92,255,0.8)',
@@ -132,8 +132,8 @@ export default function InsightFlow() {
                   className={`${styles.stageCounterBar} ${idx === activeStage ? styles.activeCounterBar : ''}`}
                   style={{
                     backgroundColor: idx === activeStage
-                      ? (activeStage === 2 ? '#2DD4BF' : '#7C5CFF')
-                      : 'rgba(38,39,44,0.8)',
+                      ? (activeStage === 2 ? 'var(--color-teal)' : 'var(--color-violet)')
+                      : 'var(--theme-grid-strong)',
                   }}
                 />
               ))}

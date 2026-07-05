@@ -91,7 +91,7 @@
   padding: 4px 12px;
   border-radius: 100px;
   background-color: var(--color-violet);
-  color: var(--color-primary);
+  color: var(--theme-accent-contrast);
   font-family: var(--font-jetbrains);
   font-size: 10px;
   font-weight: 500;
@@ -182,7 +182,7 @@
 
 .planCtaPrimary {
   background-color: var(--color-violet);
-  color: var(--color-primary);
+  color: var(--theme-accent-contrast);
   box-shadow: 0 0 32px rgba(124, 92, 255, 0.28);
 }
 

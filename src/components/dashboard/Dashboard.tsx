@@ -154,8 +154,8 @@ function ReportsPanel() {
           <div className={styles.reportMeta}>
             <div className={styles.reportIcon}>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 2h5l3 3v7H3V2z" stroke="#7C5CFF" strokeWidth="1.2" strokeLinejoin="round" />
-                <path d="M8 2v3h3" stroke="#7C5CFF" strokeWidth="1.2" strokeLinecap="round" />
+                <path d="M3 2h5l3 3v7H3V2z" stroke="var(--color-violet)" strokeWidth="1.2" strokeLinejoin="round" />
+                <path d="M8 2v3h3" stroke="var(--color-violet)" strokeWidth="1.2" strokeLinecap="round" />
               </svg>
             </div>
             <div className={styles.reportDetails}>
@@ -215,8 +215,8 @@ export default function Dashboard() {
             {/* URL bar */}
             <div className={styles.urlBar}>
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <circle cx="5" cy="5" r="4" stroke="#9A9AA2" strokeWidth="1" />
-                <path d="M3 5h4M5 3v4" stroke="#9A9AA2" strokeWidth="0.8" strokeLinecap="round" />
+                <circle cx="5" cy="5" r="4" stroke="var(--color-muted)" strokeWidth="1" />
+                <path d="M3 5h4M5 3v4" stroke="var(--color-muted)" strokeWidth="0.8" strokeLinecap="round" />
               </svg>
               <span className={`font-mono ${styles.urlLabel}`}>
                 app.xai.io/workspace
@@ -231,8 +231,8 @@ export default function Dashboard() {
               {/* Logo */}
               <div className={styles.sidebarLogo}>
                 <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-label="Xai">
-                  <circle cx="11" cy="11" r="10" stroke="#7C5CFF" strokeWidth="1.5" />
-                  <path d="M7 7 L15 15 M15 7 L7 15" stroke="#2DD4BF" strokeWidth="1.8" strokeLinecap="round" />
+                  <circle cx="11" cy="11" r="10" stroke="var(--color-violet)" strokeWidth="1.5" />
+                  <path d="M7 7 L15 15 M15 7 L7 15" stroke="var(--color-teal)" strokeWidth="1.8" strokeLinecap="round" />
                 </svg>
               </div>
 
@@ -261,8 +261,8 @@ export default function Dashboard() {
                   {/* Search */}
                   <div className={styles.searchBar}>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <circle cx="5.5" cy="5.5" r="4" stroke="#9A9AA2" strokeWidth="1.2" />
-                      <path d="M9 9L11 11" stroke="#9A9AA2" strokeWidth="1.2" strokeLinecap="round" />
+                      <circle cx="5.5" cy="5.5" r="4" stroke="var(--color-muted)" strokeWidth="1.2" />
+                      <path d="M9 9L11 11" stroke="var(--color-muted)" strokeWidth="1.2" strokeLinecap="round" />
                     </svg>
                     <span className={`font-mono ${styles.searchLabel}`}>
                       Search insights...

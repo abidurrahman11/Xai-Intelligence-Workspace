@@ -24,13 +24,18 @@ function easeOutCubic(x: number): number {
   return 1 - Math.pow(1 - x, 3);
 }
 
+function seededRandom(seed: number): number {
+  const value = Math.sin(seed * 12.9898) * 43758.5453;
+  return value - Math.floor(value);
+}
+
 // ── position generators ───
 function buildChaosPositions(count: number): Float32Array {
   const pos = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
-    pos[i * 3] = (Math.random() - 0.5) * 11.0;
-    pos[i * 3 + 1] = (Math.random() - 0.5) * 7.5;
-    pos[i * 3 + 2] = (Math.random() - 0.5) * 4.0;
+    pos[i * 3] = (seededRandom(i * 37 + 11) - 0.5) * 11.0;
+    pos[i * 3 + 1] = (seededRandom(i * 53 + 17) - 0.5) * 7.5;
+    pos[i * 3 + 2] = (seededRandom(i * 71 + 23) - 0.5) * 4.0;
   }
   return pos;
 }
@@ -92,9 +97,9 @@ function buildHexGrid(count: number): Float32Array {
   
   // fill remaining particles if needed
   while (index < count) {
-    pos[index * 3] = (Math.random() - 0.5) * 5;
-    pos[index * 3 + 1] = (Math.random() - 0.5) * 3;
-    pos[index * 3 + 2] = (Math.random() - 0.5) * 1.2;
+    pos[index * 3] = (seededRandom(index * 97 + 29) - 0.5) * 5;
+    pos[index * 3 + 1] = (seededRandom(index * 113 + 31) - 0.5) * 3;
+    pos[index * 3 + 2] = (seededRandom(index * 131 + 37) - 0.5) * 1.2;
     index++;
   }
   
@@ -253,11 +258,11 @@ function Particles({
     const sz  = new Float32Array(COUNT);
     const rnd = new Float32Array(COUNT * 3);
     for (let i = 0; i < COUNT; i++) {
-      shp[i] = Math.floor(Math.random() * 3); // 0 = circle, 1 = square, 2 = triangle
-      sz[i]  = 0.16 + Math.random() * 0.16;   // scaling factor
-      rnd[i * 3] = Math.random();
-      rnd[i * 3 + 1] = Math.random() * 2.0 - 1.0;
-      rnd[i * 3 + 2] = Math.random();
+      shp[i] = Math.floor(seededRandom(i * 19 + 7) * 3); // 0 = circle, 1 = square, 2 = triangle
+      sz[i]  = 0.16 + seededRandom(i * 23 + 13) * 0.16;   // scaling factor
+      rnd[i * 3] = seededRandom(i * 29 + 19);
+      rnd[i * 3 + 1] = seededRandom(i * 31 + 23) * 2.0 - 1.0;
+      rnd[i * 3 + 2] = seededRandom(i * 37 + 29);
     }
     return { shapes: shp, sizes: sz, randoms: rnd };
   }, []);

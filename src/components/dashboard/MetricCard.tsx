@@ -22,7 +22,7 @@ export default function MetricCardBlock({ card, index }: MetricCardProps) {
       whileHover={{
         y: -3,
         boxShadow: '0 0 0 1px rgba(124,92,255,0.32), 0 4px 24px rgba(124,92,255,0.10)',
-        borderColor: 'rgba(124,92,255,0.28)',
+        borderColor: 'rgba(124, 92, 255, 0.28)',
         transition: { duration: 0.18, ease: 'easeOut' },
       }}
       className={styles.metricCard}
