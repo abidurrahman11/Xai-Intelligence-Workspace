@@ -106,11 +106,11 @@ export default function InsightFlowCanvas({ progress }: InsightFlowCanvasProps) 
 
     // Resolve canvas DPI
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const W   = canvas.offsetWidth;
-    const H   = canvas.offsetHeight;
-    canvas.width  = W * dpr;
-    canvas.height = H * dpr;
-    ctx.scale(dpr, dpr);
+    const W   = canvas.clientWidth || canvas.offsetWidth || 1;
+    const H   = canvas.clientHeight || canvas.offsetHeight || 1;
+    canvas.width  = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const cx = W / 2;
     const cy = H / 2;

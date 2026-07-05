@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { insightFlowStages } from '@/lib/mock-data';
 import InsightFlowCanvas from './InsightFlowCanvas';
 import InsightFlowStageBlock from './InsightFlowStage';
@@ -12,6 +12,7 @@ const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export default function InsightFlow() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStage, setActiveStage] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   // track scroll progress within the container
   const { scrollYProgress } = useScroll({
@@ -19,16 +20,32 @@ export default function InsightFlow() {
     offset: ['start start', 'end end'],
   });
 
-  // Drive active stage from scroll position
-  useMotionValueEvent(scrollYProgress, 'change', (p) => {
-    if (p < 0.40) {
-      setActiveStage(0);
-    } else if (p < 0.72) {
-      setActiveStage(1);
-    } else {
-      setActiveStage(2);
-    }
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 24,
+    mass: 0.8,
   });
+
+  useEffect(() => {
+    let frameId = 0;
+    let lastStage = 0;
+
+    const updateStage = () => {
+      const progress = smoothProgress.get();
+      const nextStage = progress < 0.40 ? 0 : progress < 0.72 ? 1 : 2;
+
+      if (nextStage !== lastStage) {
+        lastStage = nextStage;
+        setActiveStage(nextStage);
+      }
+
+      frameId = window.requestAnimationFrame(updateStage);
+    };
+
+    frameId = window.requestAnimationFrame(updateStage);
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [smoothProgress]);
 
   return (
     <section
@@ -124,7 +141,7 @@ export default function InsightFlow() {
 
             {/* actual visualization canvas */}
             <div className={styles.canvasFrame}>
-              <InsightFlowCanvas progress={scrollYProgress} />
+              <InsightFlowCanvas progress={shouldReduceMotion ? scrollYProgress : smoothProgress} />
             </div>
           </motion.div>
         </div>
